@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="layout/style.css">
+    <link rel="stylesheet" href="layout/CSS/login_style.css">
 </head>
 <body>
     <div class="login-container">
@@ -58,5 +58,4 @@
         </form>
     </div>
 </body>
-<script src="layout/script.js"></script>
 </html>

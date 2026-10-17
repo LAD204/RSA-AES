@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    padding: 40px 20px;
+}
+
+.crypto-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto; 
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.crypto-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 14.5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #2d3748;
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+    resize: vertical; 
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #3182ce;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.btn {
+    flex: 1; 
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.3s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-encrypt {
+    background-color: #2b6cb0; 
+}
+
+.btn-encrypt:hover {
+    background-color: #2c5282;
+}
+
+.btn-decrypt {
+    background-color: #c53030; 
+}
+
+.btn-decrypt:hover {
+    background-color: #9b2c2c;
+}
+
+@media (max-width: 600px) {
+    .crypto-container {
+        padding: 25px 20px;
+    }
+    .action-buttons {
+        flex-direction: column; 
+    }
+}
