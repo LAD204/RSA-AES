@@ -1,18 +1,25 @@
 const batsukien = document.getElementById('algorithm');
 const titleElement = document.getElementById('title');
+const khungNhapKhoa = document.getElementById('keyInput');
+const nhapKhoaLabel = document.getElementById('keyLabel');
+function capNhatGiaoDien() {
+    const giaTriChon = batsukien.value;
 
-titleElement.textContent = 'Công cụ mã hóa và giải mã';
-
-
-batsukien.addEventListener('change', function(e){
-    if(e.target.value === 'AES'){
-        titleElement.textContent = 'Thuật toán mã hóa và giải mã bằng AES';
-    }
-    else if(e.target.value === 'RSA'){
+    if (giaTriChon === 'RSA') {
         titleElement.textContent = 'Thuật toán mã hóa và giải mã bằng RSA';
-    }
-    else if(e.target.value === 'None'){
+        khungNhapKhoa.style.display = 'none'; 
+        nhapKhoaLabel.style.display = 'none'; 
+    } 
+    else if (giaTriChon === 'AES') {
+        titleElement.textContent = 'Thuật toán mã hóa và giải mã bằng AES';
+        khungNhapKhoa.style.display = 'block'; 
+        nhapKhoaLabel.style.display = 'block'; 
+    } 
+    else {
         titleElement.textContent = 'Công cụ mã hóa và giải mã';
+        khungNhapKhoa.style.display = 'block'; 
+        nhapKhoaLabel.style.display = 'block';
     }
-})
-
+}
+batsukien.addEventListener('change', capNhatGiaoDien);
+capNhatGiaoDien();

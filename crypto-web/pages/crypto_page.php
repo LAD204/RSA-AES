@@ -26,22 +26,25 @@
         
         <form id="crypto-form" method="post" name="crypto">
             <div class="form-group">
-                <label for="algorithm">1. Chọn thuật toán</label>
+                <?php
+                    $thuat_toan_da_chon = isset($_POST['algorithm']) ? $_POST['algorithm'] : 'None';
+                ?>
+                <label for="algorithm">CHỌN THUẬT TOÁN</label>
                 <select id="algorithm" name="algorithm" class="form-control">
-                    <option value="None">---</option>
-                    <option value="AES">Thuật toán AES (Khóa đối xứng)</option>
-                    <option value="RSA">Thuật toán RSA (Khóa bất đối xứng)</option>
+                    <option value="None" <?php if($thuat_toan_da_chon == 'None') echo 'selected'; ?>>---</option>
+                    <option value="AES" <?php if($thuat_toan_da_chon == 'AES') echo 'selected'; ?>>Thuật toán AES (Khóa đối xứng)</option>
+                    <option value="RSA" <?php if($thuat_toan_da_chon == 'RSA') echo 'selected'; ?>>Thuật toán RSA (Khóa bất đối xứng)</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="inputText">2. Nhập văn bản đầu vào</label>
+                <label for="inputText">NHẬP VĂN BẢN ĐẦU VÀO</label>
                 <textarea id="inputText" name="inputText" class="form-control" rows="4" placeholder="Nhập văn bản cần mã hóa hoặc đoạn mã cần giải mã vào đây..."></textarea>
             </div>
 
             <div class="form-group">
-                <label for="keyInput">3. Nhập Khóa</label>
-                <textarea id="keyInput" name="keyInput" class="form-control" rows="3" placeholder="Nhập Khóa..."></textarea>
+                <label id="keyLabel" for="keyInput">NHẬP KHÓA</label>
+                <textarea id="keyInput" name="keyInput" class="form-control" rows="3" placeholder="Nhập Khóa..." ></textarea>
             </div>
 
             <div class="action-buttons">
@@ -50,7 +53,7 @@
             </div>
 
             <div class="form-group">
-                <label for="outputText">4. Kết quả</label>
+                <label for="outputText">KẾT QUẢ</label>
                 <textarea id="outputText" name="outputText" class="form-control" rows="5" placeholder="Kết quả..." readonly>
                     <?php
                         if(isset($_POST['thucthi'])){
@@ -70,7 +73,7 @@
                                     else if($_POST['algorithm']=='RSA'){
                                         $input = $_POST['inputText'];
                                         $key = $_POST['keyInput'];
-                                        $result = $algor->encryptRSA($input, $key);
+                                        $result = $algor->encryptRSA($input);
                                         if($result!=false){
                                             echo $result;
                                         }
@@ -98,7 +101,7 @@
                                     else if($_POST['algorithm']=='RSA'){
                                         $input = $_POST['inputText'];
                                         $key = $_POST['keyInput'];
-                                        $result = $algor->decryptRSA($input, $key);
+                                        $result = $algor->decryptRSA($input);
                                         if($result!=false){
                                             echo $result;
                                         }
